@@ -46,6 +46,7 @@ router.get('/',  async (req, res) => {
 
 router.get('/user',  async (req, res) => {
     try {
+        console.log("Fetching books for user:", req.user._id);
         const books = await Book.find({ user: req.user._id }).sort({ createdAt: -1 });
         res.json(books);
     } catch (error) {
