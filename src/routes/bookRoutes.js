@@ -5,7 +5,7 @@ import protectRoute from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/', protectRoute, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { title, caption, rating, image } = req.body;
 
@@ -26,7 +26,7 @@ router.post('/', protectRoute, async (req, res) => {
     }
 });
 
-router.get('/', protectRoute, async (req, res) => {
+router.get('/',  async (req, res) => {
     try {
         const page = req.query.page || 1;
         const limit = req.query.limit || 5;
@@ -44,7 +44,7 @@ router.get('/', protectRoute, async (req, res) => {
     }
 });
 
-router.get('/user', protectRoute, async (req, res) => {
+router.get('/user',  async (req, res) => {
     try {
         const books = await Book.find({ user: req.user._id }).sort({ createdAt: -1 });
         res.json(books);
@@ -54,7 +54,7 @@ router.get('/user', protectRoute, async (req, res) => {
     }
 });
 
-router.delete('/:id', protectRoute, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
         if (!book) {
