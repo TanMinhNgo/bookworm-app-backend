@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TanMinhNgo",
+  "license": "ISC",
+  "description": "Backend for Bookworm App",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
