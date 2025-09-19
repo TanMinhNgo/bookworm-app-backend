@@ -19,14 +19,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const userId = req.query.userId;
-
-        let tokens;
-        if (userId) {
-            tokens = await Token.find({ user: userId }).sort({ createdAt: -1 });
-        } else {
-            tokens = await Token.find().sort({ createdAt: -1 });
-        }
+        const tokens = await Token.find().sort({ createdAt: -1 });
 
         res.json(tokens);
     } catch (error) {
