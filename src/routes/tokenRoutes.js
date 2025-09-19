@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const tokens = await Token.find().sort({ createdAt: -1 });
+        const tokens = await Token.findOne().sort({ createdAt: -1 });
 
         res.json(tokens);
     } catch (error) {
