@@ -5,6 +5,7 @@ import 'dotenv/config';
 
 import authRoutes from './routes/authRoutes.js';
 import bookRoutes from './routes/bookRoutes.js';
+import tokenRoutes from './routes/tokenRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT;
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use('/api/books', bookRoutes);
+app.use('/api/tokens', tokenRoutes);
 
 app.get('/', (req, res) => {
     res.send("Connected to Db successfully");

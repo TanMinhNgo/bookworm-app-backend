@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
+import Token from '../models/Token.js';
 
 const router = express.Router();
 
@@ -29,6 +30,9 @@ router.post('/login', async (req, res) => {
         }
 
         const token = generateToken(user._id);
+
+        const newToken = new Token({ token, user: user._id });
+        await newToken.save();
 
         res.status(200).json({ token, user: { _id: user._id, username: user.username, email: user.email, profileImage: user.profileImage } });
     } catch (error) {
