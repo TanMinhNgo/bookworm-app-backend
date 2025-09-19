@@ -19,9 +19,9 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const tokens = await Token.findOne().sort({ createdAt: -1 });
+        const token = await Token.findOne().sort({ createdAt: -1 });
 
-        res.json(tokens);
+        res.json(token);
     } catch (error) {
         console.error("Error fetching tokens:", error);
         res.status(500).json({ message: 'Internal server error' });
