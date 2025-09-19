@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const userId = req.body.userId;
+        const userId = req.query.userId;
 
         let tokens;
         if (userId) {
