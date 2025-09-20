@@ -8,7 +8,7 @@ const protectRoute = async (req, res, next) => {
             token = token.split(" ")[1];
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token);
         const user = await User.findById(decoded._id);
 
         if (!user) {
